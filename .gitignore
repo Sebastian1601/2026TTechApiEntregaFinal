@@ -1,3 +1,12 @@
+# dotenv environment variable files
+.env
+.env.*
+!.env.example
+
+# Dependency directories
+node_modules/
+jspm_packages/
+
 # Logs
 logs
 *.log
@@ -37,10 +46,6 @@ bower_components
 # Compiled binary addons (https://nodejs.org/api/addons.html)
 build/Release
 
-# Dependency directories
-node_modules/
-jspm_packages/
-
 # Snowpack dependency directory (https://snowpack.dev/)
 web_modules/
 
@@ -64,11 +69,6 @@ web_modules/
 
 # Yarn Integrity file
 .yarn-integrity
-
-# dotenv environment variable files
-.env
-.env.*
-!.env.example
 
 # parcel-bundler cache (https://parceljs.org/)
 .cache
