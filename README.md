@@ -21,5 +21,27 @@ Módulos instalados:
 
 ## Estructura de carpetas
 
-## 
+│node_modules
+├src
+│ ├ config
+│ ├ controllers
+│ ├ middlewares
+│ ├ models
+│ ├ routes
+│ ├ services
 
+
+## Estructura de item de colección productos
+
+```json
+{
+    "title":"titulo del producto",
+    "price": precioINT64,
+    "stock": stockINT64
+}
+```
+
+│179
+├ 195
+─196
+┼ 197
