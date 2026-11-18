@@ -1,0 +1,19 @@
+### obtener uno
+GET http://localhost:3000/api/products/5
+
+
+### obtener varios
+GET http://localhost:3000/api/products
+
+
+
+### guardar un producto
+POST http://localhost:3000/api/products
+User-Agent: rest-client
+Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InVzdWFyaW9AeWFob28uY29tIiwiaWF0IjoxNzk0OTY0NjI4LCJleHAiOjE3OTQ5NjU1Mjh9.3kAUP7L2Pv9PXX-Z-8RENg1r_6mMMjSq-6n9oRw1GVg
+Content-Type: application/json
+
+{
+    "title":"Libro 1",
+    "price":17500
+}
