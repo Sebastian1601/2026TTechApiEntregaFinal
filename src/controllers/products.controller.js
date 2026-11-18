@@ -13,8 +13,19 @@ export const getProducts = async (req, res) => {
 
 export const getProduct = async (req, res) => {
     const { id } = req.params ?? null;
+    if (
+        !id ||
+        typeof id !== 'string'
+    ) {
+        return res.status(400).json({ message: "ID inválido" });
+    };
     try {
         const product = await service.getSingleProduct(id);
+        if (!product) {
+            return res
+                .status(404)
+                .json({ message: "No se encontró producto con id indicada" })
+        };
         res
             .status(200)
             .json(product);
@@ -28,29 +39,29 @@ export const getProduct = async (req, res) => {
 export const createProduct = async (req, res) => {
     const { title, price, stock } = req.body ?? {};
 
-    if (!title ||
-        !price ||
-        !stock
-    ) {
-        return res
-            .status(402)
-            .json({
-                message: "Existen datos inválidos en el ingreso del producto."
-            });
-    };
+    let validData = true;
+
+    if (!title || title.length < 4) validData = false;
+    if (!price || price < 1) validData = false;
+    if (!stock || stock < 1) validData = false;
+
+    if (!validData) return res
+        .status(400)
+        .json({ message: "Los datos de titulo, precio o stock son inválidos. verificar." })
+
     try {
-        const newProduct = await service.createProduct({ title, price, stock });
+        const productId = await service.createProduct({ title, price, stock });
         return res
             .status(200)
             .json({
                 ok: true,
-                product: newProduct
+                productId: productId
             });
     } catch (e) {
         return res
             .status(500)
             .json({
-                message: "Se generó un error al crear el nuevo producto."
+                message: "Se generó un error al crear el nuevo producto en la base."
             })
     };
 };
@@ -62,7 +73,7 @@ export const deleteProduct = async (req, res) => {
         res
             .status(200)
             .json({
-                message:"Producto Eliminado."
+                message: "Producto Eliminado."
             });
     } catch (e) {
         res.status(500).json({

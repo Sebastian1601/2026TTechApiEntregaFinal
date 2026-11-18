@@ -3,7 +3,7 @@ import {
     listSingleProduct,
     deleteSingleProduct,
     createSingleProduct
-} from '../models/product.model.js';
+} from '../models/products.model.js';
 
 export async function listProducts() {
     return await listAllProducts();
