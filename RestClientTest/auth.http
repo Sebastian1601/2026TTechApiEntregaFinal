@@ -1,5 +1,5 @@
 ### Autenticarse
-POST http://localhost:3000/api/auth/
+POST http://localhost:3000/api/auth/login
 Content-Type: application/json
 
 {
@@ -8,7 +8,7 @@ Content-Type: application/json
 }
 
 ### autenticacion 2
-POST http://localhost:3000/api/auth/
+POST http://localhost:3000/api/auth/login
 Content-Type: application/json
 
 {
@@ -16,4 +16,11 @@ Content-Type: application/json
     "password":"654321"
 }
 
+### intento de autenticacion fallido
+POST http://localhost:3000/api/auth/login
+Content-Type: application/json
 
+{
+    "email":"us@yahoo.mail",
+    "password":""
+}

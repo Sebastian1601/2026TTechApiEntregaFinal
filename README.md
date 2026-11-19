@@ -21,15 +21,16 @@ Módulos instalados:
 
 ## Estructura de carpetas
 
-│node_modules
-├src
-│ ├ config
+│
+├ node_modules
+├ RestClientTest `archivos de pruebas a los endpoints`
+├ src
+│ ├ config 
 │ ├ controllers
 │ ├ middlewares
 │ ├ models
 │ ├ routes
-│ ├ services
-
+  └ services
 
 ## Estructura de item de colección productos
 

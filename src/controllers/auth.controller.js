@@ -15,12 +15,14 @@ export const login = (req, res) => {
         return res.status(401).json({
             error: "Credenciales incorrectas",
         });
-    }
-    const user = { email: email };
-    const expiration = { expiresIn: '15m' };
-    const token = jwt.sign(user, process.env.JWT_SECRET, expiration);
+    };
 
-    return res.status(200).json({
+    const USER = { email: email };
+    const expiration = { expiresIn: '15m' };
+
+    const token = jwt.sign(USER, process.env.JWT_SECRET, expiration);
+
+    return res.json({
         token: token
     });
 };

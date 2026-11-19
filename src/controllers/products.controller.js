@@ -41,9 +41,9 @@ export const createProduct = async (req, res) => {
 
     let validData = true;
 
-    if (!title || title.length < 4) validData = false;
-    if (!price || price < 1) validData = false;
-    if (!stock || stock < 1) validData = false;
+    if (!title || typeof title !== 'string' || title.length < 4) validData = false;
+    if (!price || typeof price !== 'number' || price < 1) validData = false;
+    if (!stock || typeof stock !== 'number' || stock < 1) validData = false;
 
     if (!validData) return res
         .status(400)
