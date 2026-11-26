@@ -1,0 +1,8 @@
+$kind: http-request
+url: "{{url}}/products/{{_idProductoEliminar}}"
+method: DELETE
+auth:
+  type: bearer
+  credentials:
+    token: "{{bearerToken}}"
+order: 5147

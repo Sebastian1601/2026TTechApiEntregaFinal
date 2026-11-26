@@ -48,6 +48,15 @@ export async function createSingleProduct(data) {
 export async function deleteSingleProduct(id) {
     //primero se obtiene la referencia con doc(<coleccion>, <id del registro a referenciar>) 
     // y luego se elimina el registro de la referencia con deleteDoc(<referencia al documento a eliminar>)
-    await deleteDoc(doc(productsCollection, id));
+    const docRef = doc(productsCollection, id);
+
+    const docSnap = await getDoc(docRef);
+
+    if (docSnap.exists()) {
+        await deleteDoc(docRef);
+        return true;
+    } else {
+        return false;
+    }
 };
 

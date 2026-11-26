@@ -7,7 +7,7 @@ const router = Router();
 router
     .get("/", pc.getProducts)
     .get("/:id", pc.getProduct)
-    .post("/", verifyToken, pc.createProduct)
+    .post("/create", verifyToken, pc.createProduct)
     .delete("/:id", verifyToken, pc.deleteProduct);
 
 export default router;

@@ -1,0 +1,19 @@
+$kind: http-request
+url: "{{url}}/products/create"
+method: POST
+body:
+  type: json
+  content: "{\r
+
+    \    \"title\":\"{{productTitle}}\",\r
+
+    \    \"price\":{{productPrice}},\r
+
+    \    \"stock\":{{productStock}}\r
+
+    }"
+auth:
+  type: bearer
+  credentials:
+    token: "{{bearerToken}}"
+order: 6000

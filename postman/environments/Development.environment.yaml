@@ -1,0 +1,16 @@
+name: Development
+values:
+  - key: url
+    value: ''
+  - key: _idProducto
+    value: ''
+  - key: bearerToken
+    secret: true
+  - key: productTitle
+    value: ''
+  - key: productPrice
+    value: ''
+  - key: productStock
+    value: ''
+  - key: _idProductoEliminar
+    value: ''

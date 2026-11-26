@@ -42,7 +42,13 @@ Módulos instalados:
 }
 ```
 
-│179
-├ 195
-─196
-┼ 197
+## Pruebas con POSTMAN
+
+Para las pruebas con Postman, se crean 2 colecciones, una para Autenticación, y otra para productos.
+Se adjuntan en la carpeta *postman* las 2 colecciones y se crea un environment o entorno con las variables que utilizan dichas peticiones en su confección.
+
+## Datos para probar login
+
+archivo .env ->
+**DEMO_EMAIL**:"user@mailserver.com",
+**DEMO_PASSWORD**:"87654321"

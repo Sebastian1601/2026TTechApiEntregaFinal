@@ -69,14 +69,21 @@ export const createProduct = async (req, res) => {
 export const deleteProduct = async (req, res) => {
     const { id } = req.params ?? null;
     try {
-        const product = await service.deleteProduct(id);
-        res
-            .status(200)
+        const productDeleted = await service.deleteProduct(id);
+        if (productDeleted) {
+            return res
+                .status(200)
+                .json({
+                    message: "Producto Eliminado."
+                });
+        };
+        return res
+            .status(404)
             .json({
-                message: "Producto Eliminado."
+                message: "El producto a eliminar no existe"
             });
     } catch (e) {
-        res.status(500).json({
+        return res.status(500).json({
             message: "Error al eliminar producto."
         });
     };

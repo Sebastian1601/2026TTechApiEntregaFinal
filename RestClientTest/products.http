@@ -1,5 +1,5 @@
 ### autenticarse con archivo de pruebas auth.http y copiar token aqui
-@var_token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InVzdWFyaW9AeWFob28uY29tIiwiaWF0IjoxNzk1MDQ3MTE0LCJleHAiOjE3OTUwNDgwMTR9.vpvrZHA_yOD7URUWojHgZCA9dPMC6qoxfwrONcjm9ZM
+@var_token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InVzZXJAeWFiaXJ1LmNvbSIsImlhdCI6MTc5NTcwNTMzNiwiZXhwIjoxNzk1NzA2MjM2fQ.CW2UuOSjKaF8NMjdfUyqWz3DOJg6f4cpqjDQY9hoxRc
 
 ### obtener uno
 GET http://localhost:3000/api/products/W5pa6YMQuGYDp4y0suFd
@@ -8,7 +8,7 @@ GET http://localhost:3000/api/products/W5pa6YMQuGYDp4y0suFd
 GET http://localhost:3000/api/products
 
 ### intentar guardar sin token
-POST http://localhost:3000/api/products
+POST http://localhost:3000/api/products/create
 User-Agent: rest-client
 Content-Type: application/json
 
@@ -19,13 +19,17 @@ Content-Type: application/json
 }
 
 ### guardar un producto con token
-POST http://localhost:3000/api/products
+POST http://localhost:3000/api/products/create
 User-Agent: rest-client
 Authorization: Bearer {{var_token}}
 Content-Type: application/json
 
 {
-    "title":"Nuevo Mouse gamer Razr OmniPad x600",
-    "price":50000,
-    "stock":3
+    "title":"Joystick Nacon Revolution Pro Max FullHD",
+    "price":35750,
+    "stock":2
 }
+
+### Eliminar producto
+DELETE http://localhost:3000/api/products/W5pa6YMQuGYDp4y0suFd
+Authorization: Bearer {{var_token}}
